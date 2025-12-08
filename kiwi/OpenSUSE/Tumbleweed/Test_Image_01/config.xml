@@ -26,7 +26,7 @@
         <bootloader-theme>openSUSE</bootloader-theme>
     </preferences>
     <users>
-        <user password="$1$wYJUgpM5$RXMMeASDc035eX.NbYWFl0" home="/root" name="root" groups="root"/>
+        <user password="$6$rBGZOZLw.eYKMnBB$44MbylkHGbRLR9cnXNT1qwKsYKlcVX6.NZ6HzteJSpsjP5OrBph5XuwxzmgWfsjnSRJj.MVK7yQyIiTxgW74Q1" home="/root" name="root" groups="root"/>
     </users>
     <!-- <repository alias="Tumbleweed" imageinclude="true">
         <source path="http://download.opensuse.org/tumbleweed/repo/oss"/>
