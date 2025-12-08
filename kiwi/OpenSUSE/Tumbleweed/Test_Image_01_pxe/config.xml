@@ -15,7 +15,6 @@
         <locale>en_US</locale>
         <keytable>us</keytable>
         <timezone>Europe/Warsaw</timezone>
-        <hwclock>utc</hwclock>
 
         <rpm-excludedocs>true</rpm-excludedocs>
         <!-- add luks="password" attribute below in order to generate encrypted image -->
