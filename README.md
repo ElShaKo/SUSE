@@ -1,0 +1,1 @@
+# SUSE and OpenSUSE
