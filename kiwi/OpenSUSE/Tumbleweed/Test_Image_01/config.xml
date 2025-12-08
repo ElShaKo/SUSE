@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<image schemaversion="7.6" name="Test_Image_01" version="0.1.0">
+<image schemaversion="7.6" name="Test_Image_01">
     <description type="system">
         <author>ElShaK</author>
         <contact>plushowy@wp.pl</contact>
-        <specification>
-            Tumbleweed
-        </specification>
+        <specification>OpenSUSE Tumbleweed</specification>
     </description>
     <preferences>
         <type image="iso" primary="true" flags="overlay" hybridpersistent_filesystem="ext4" hybridpersistent="true" firmware="uefi"/>
