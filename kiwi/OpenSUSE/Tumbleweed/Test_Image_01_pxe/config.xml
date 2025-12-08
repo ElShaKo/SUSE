@@ -16,8 +16,6 @@
         <keytable>us</keytable>
         <timezone>Europe/Warsaw</timezone>
 
-        <solverflags>--allow-vendor-change --allow-erase</solverflags>
-
         <rpm-excludedocs>true</rpm-excludedocs>
         <!-- add luks="password" attribute below in order to generate encrypted image -->
         <type filesystem="ext3" image="pxe" initrd_system="dracut" compressed="true"></type>
