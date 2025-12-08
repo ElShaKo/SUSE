@@ -92,7 +92,7 @@
         <package name="patterns-base-x11"/>
         <package name="xorg-x11-server"/>
         <package name="xorg-x11"/>
-        <package name="xorg-x11-libs"/>
+        <!-- <package name="xorg-x11-libs"/> -->
         <package name="xorg-x11-driver-video"/>
         <package name="dbus-1-x11"/>
         <package name="x11-tools"/>
