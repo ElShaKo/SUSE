@@ -1,4 +1,4 @@
-test_file_env:
+test_file_env_prod:
   file.managed:
     - name: /tmp/test_file_env
     - contents: |
