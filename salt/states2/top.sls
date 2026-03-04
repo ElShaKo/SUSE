@@ -1,4 +1,4 @@
 base:
   '*':
     - test
-    - prod_test
+    - prod_prod
