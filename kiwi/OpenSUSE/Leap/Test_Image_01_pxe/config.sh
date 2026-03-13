@@ -40,7 +40,7 @@ suseSetupProduct
 #======================================
 # Specify default runlevel
 #--------------------------------------
-baseSetRunlevel 5
+baseSetRunlevel 3
 
 #======================================
 # Add missing gpg keys to rpm
@@ -50,27 +50,27 @@ suseImportBuildKey
 #======================================
 # Enable DHCP on eth0
 #--------------------------------------
-cat >/etc/sysconfig/network/ifcfg-eth0 <<EOF
-BOOTPROTO='dhcp'
-MTU=''
-REMOTE_IPADDR=''
-STARTMODE='auto'
-ETHTOOL_OPTIONS=''
-USERCONTROL='no'
-EOF
+# cat >/etc/sysconfig/network/ifcfg-eth0 <<EOF
+# BOOTPROTO='dhcp'
+# MTU=''
+# REMOTE_IPADDR=''
+# STARTMODE='auto'
+# ETHTOOL_OPTIONS=''
+# USERCONTROL='no'
+# EOF
 
 #======================================
 # Remove doc files
 #--------------------------------------
-rm -rf /usr/share/doc/*
-rm -rf /usr/share/man/man*/*
+# rm -rf /usr/share/doc/*
+# rm -rf /usr/share/man/man*/*
 
 #======================================
 # Sysconfig Update
 #--------------------------------------
 echo '** Update sysconfig entries...'
 
-baseUpdateSysConfig /etc/sysconfig/network/dhcp DHCLIENT_SET_HOSTNAME yes
+# baseUpdateSysConfig /etc/sysconfig/network/dhcp DHCLIENT_SET_HOSTNAME yes
 
 # Enable firewalld if installed
 if [ -x /usr/sbin/firewalld ]; then

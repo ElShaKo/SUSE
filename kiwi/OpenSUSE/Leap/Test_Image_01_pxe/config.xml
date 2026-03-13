@@ -33,98 +33,43 @@
         <package name="grub2"/>
         <package name="dracut-kiwi-live"/>
 
+        <package name="patterns-base-base"/>
+        <package name="patterns-base-selinux"/>
+        <package name="selinux-policy-targeted"/> <!-- only suggested in patterns-base-selinux on openSUSE -->
+        <package name="audit"/>
+        <package name="aaa_base-extras"/>
         <package name="acl"/>
-        <package name="grep"/>
         <package name="chrony"/>
         <package name="curl"/>
         <package name="dracut"/>
-        <package name="procps"/> <!-- needed for dracut network-legacy -->
         <package name="fipscheck"/>
-        <package name="shim" arch="x86_64"/>
-        <package name="grub2-x86_64-efi" arch="x86_64"/>
-        <package name="grub2-arm64-efi" arch="aarch64"/>
-        <package name="haveged"/>
-        <package name="less" />
+        <package name="group(mail)"/>
+        <!-- Previously pam_cracklib was part of pam, but the replacement is only recommended -->
+        <package name="pam_pwquality"/>
+        <package name="cracklib-dict-small"/> <!-- Avoid the big 10MiB one -->
+        <package name="group(wheel)"/>
+        <package name="issue-generator"/>
+        <package name="vim-small"/>
+        <package name="less"/>
         <package name="tar"/>
-        <package name="gzip"/>
-        <package name="gawk"/>
         <package name="parted"/>
-        <package name="suse-build-key"/>
+        <package name="SUSEConnect"/>
+        <package name="openSUSE-repos-Leap"/>
+        <package name="openSUSE-build-key"/>
+        <package name="systemd"/>
         <package name="timezone"/>
-        <package name="NetworkManager"/>
-        <package name="iproute2"/> 
+        <package name="systemd-default-settings-branding-openSUSE"/>
+        <package name="iproute2"/>
         <package name="openssh"/>
         <package name="rsync"/>
-
-        <!-- Only for btrfs
-        <package name="btrfsprogs"/>
-        <package name="btrfsmaintenance"/>
-        <package name="grub2-snapper-plugin"/>
-        <package name="snapper-zypp-plugin"/>
-        <package name="rollback-helper"/>
-        <package name="snapper"/>
-        -->
-
-        <package name="kernel-default"/>
-        <!-- packages for saltboot and SUSE Manager -->
-        <package name="hostname"/>
-	    <package name="venv-salt-minion"/>
-	    <!-- <package name="dracut-saltboot"/> -->
-
-        <package name="mdadm"/>
-        <!-- <package name="kernel-firmware"/> -->
-        <package name="kexec-tools"/>
-        <package name="dmidecode"/>
-
-        <!-- uncomment here to enable wireless boot
-        <package name="dracut-wireless"/>
-        <package name="wpa_supplicant"/>
-        -->
-
-        <package name="plymouth"/>
-        <package name="plymouth-dracut"/>
-
-        <package name="fontconfig"/>
-        <package name="fonts-config"/>
-        <package name="google-noto-sans-fonts"/>
-        <package name="xfsprogs"/>              <!-- can be optionaly removed if XFS will not be used -->
-        <!-- <package name="busybox"/>               this is needed if tftp is used for background image downloading -->
-        <!-- <package name="kiwi-tools"/> -->
         <package name="dosfstools"/>
-
-        <!-- packages specific for Graphical image -->
-        <package name="patterns-gnome-gnome_basic"/>
-        <package name="patterns-base-x11"/>
-        <package name="xorg-x11-server"/>
-        <package name="xorg-x11"/>
-        <!-- <package name="xorg-x11-libs"/> -->
-        <package name="xorg-x11-driver-video"/>
-        <package name="dbus-1-x11"/>
-        <package name="x11-tools"/>
-        <package name="xorg-x11-fonts"/>
-        <package name="gdm"/>
-        <package name="alsa"/>
-        <!-- <package name="pulseaudio"/> -->
-        <package name="MozillaFirefox"/>
-        <package name="nautilus"/>
-
-        <!-- Themes and branding -->
-        <!-- <package name="gnome-menus-branding-SLE"/> -->
-        <package name="gtk2-metatheme-adwaita"/>
-        <package name="gtk3-metatheme-adwaita"/>
-        <!-- <package name="gdm-branding-SLE"/> -->
-        <!-- <package name="branding-SLE"/> -->
-        <!-- <package name="gio-branding-SLE"/> -->
-        <!-- <package name="MozillaFirefox-branding-SLE"/> -->
-        <package name="gnome-shell-classic"/>
-
-        <!-- Fonts -->
-        <package name="liberation-fonts"/>
-        <package name="google-opensans-fonts"/>
-        <package name="cantarell-fonts"/>
-        <package name="dejavu-fonts"/>
-        <package name="ghostscript-fonts-std"/>
-        <package name="ghostscript-fonts-other"/>
+        <package name="lsof"/>
+        <package name="zypper-needs-restarting"/>
+        <package name="zypper-lifecycle-plugin"/>
+        <package name="combustion &gt;= 1.2"/>
+        <package name="NetworkManager"/>
+        <package name="NetworkManager-branding-openSUSE"/>
+        <package name="dracut-kiwi-oem-repart"/>
     </packages>
     <packages type="bootstrap">
         <package name="udev"/>
