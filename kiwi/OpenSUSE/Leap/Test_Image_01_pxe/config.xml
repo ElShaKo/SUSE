@@ -22,16 +22,6 @@
     </preferences>
 
     <packages type="image">
-        <!-- <package name="patterns-openSUSE-base"/> -->
-        <!-- FIX: remove busybox conflicts -->
-        <package name="-busybox"/>
-        <package name="-busybox-grep"/>
-        <package name="-busybox-gzip"/>
-        <package name="-busybox-xz"/>
-        <package name="-busybox-diffutils"/>
-        <package name="-busybox-sed"/>
-        <package name="-busybox-coreutils"/>
-
         <package name="acl"/>
         <package name="grep"/>
         <package name="chrony"/>
