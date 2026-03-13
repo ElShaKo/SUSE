@@ -33,7 +33,6 @@
         <package name="grub2"/>
         <package name="dracut-kiwi-live"/>
 
-        <package name="joe"/>
         <package name="aaa_base-extras"/>
         <package name="aaa_base-wsl"/>
 
@@ -51,13 +50,12 @@
         <package name="openSUSE-repos-Leap"/>
         <package name="openSUSE-build-key"/>
         <package name="systemd-default-settings-branding-openSUSE"/>
-]       <package name="lsof"/>
+        <package name="lsof"/>
         <package name="zypper-needs-restarting"/>
         <package name="zypper-lifecycle-plugin"/>
         <package name="NetworkManager"/>
         <package name="NetworkManager-branding-openSUSE"/>
         <package name="dracut-kiwi-oem-repart"/>
-
 
 
         <package name="acl"/>
