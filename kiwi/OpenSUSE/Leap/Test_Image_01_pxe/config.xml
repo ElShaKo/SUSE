@@ -54,7 +54,6 @@
 ]       <package name="lsof"/>
         <package name="zypper-needs-restarting"/>
         <package name="zypper-lifecycle-plugin"/>
-        <package name="combustion &gt;= 1.2"/>
         <package name="NetworkManager"/>
         <package name="NetworkManager-branding-openSUSE"/>
         <package name="dracut-kiwi-oem-repart"/>
