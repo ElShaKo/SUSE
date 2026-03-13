@@ -27,7 +27,7 @@
         <package name="patterns-openSUSE-base"/>
         <package name="systemd"/>
         <package name="plymouth-theme-bgrt"/>
-        <package name="grub2-branding-openSUSE bootinclude="true""/>
+        <package name="grub2-branding-openSUSE" bootinclude="true"/>
         <package name="iputils"/>
         <package name="vim"/>
         <package name="grub2"/>
