@@ -101,7 +101,7 @@
         <package name="xorg-x11-fonts"/>
         <package name="gdm"/>
         <package name="alsa"/>
-        <package name="pulseaudio"/>
+        <!-- <package name="pulseaudio"/> -->
         <package name="MozillaFirefox"/>
         <package name="nautilus"/>
 
