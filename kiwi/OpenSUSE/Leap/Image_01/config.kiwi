@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<image schemaversion="7.5" name="openSUSE-Leap-16.0" displayname="openSUSE-Leap-16.0">
+    <description type="system">
+        <author></author>
+        <contact></contact>
+        <specification>openSUSE Leap 16.0 generic image</specification>
+    </description>
+
+    <profiles>
+        <profile name="azure-base" description="Base profile for Microsoft Azure"/>
+        <profile name="Azure" description="Configuration for Microsoft Azure">
+            <requires profile="azure-base"/>
+        </profile>
+
+        <profile name="kvm-base" description="Base profile for KVM"/>
+        <profile name="KVM" description="Configuration for KVM">
+            <requires profile="kvm-base"/>
+        </profile>
+    </profiles>
+
+    <preferences>
+        <version>0.1.0</version>
+        <locale>en_US</locale>
+        <keytable>us</keytable>
+        <timezone>UTC</timezone>
+        <packagemanager>zypper</packagemanager>        
+    </preferences>
+
+    <users>
+        <user name="root" groups="root" home="/root" password="$6$4DEILW0qmKzLl1JH$2btJEAvftGsGpanJ8BueIPLgR.y1Sq7DyQgGOhzqNESD09t18Kwwb5OouuV0gwgQ6GsvuyqduZcYTcM3B6Kb/."/>
+        <user name="devops" groups="users" home="/home/devops" password="$6$ytpiAF0w9HtmFKUU$D7TJLFbUYtU7xEL03PCgho6Q0EX00jIpz2P2.iq/DbqUHnIttvc7uAVu/iX7jjYZf571DxZMyj5YEI1HmJB0H/"/>
+    </users>
+
+    <!-- Only for build server -->
+    <!-- <repository type="rpm-md">
+        <source path="obsrepositories:/"/>
+    </repository> -->
+
+    <!-- Only for manual build -->
+    <!-- <repository type="rpm-md">
+        <source path="https://download.opensuse.org/distribution/leap/16.0/repo/oss/"/>
+    </repository>
+
+    <repository type="rpm-md">
+        <source path="https://download.opensuse.org/distribution/leap/16.0/repo/non-oss/"/>
+    </repository> -->
+
+    <!-- There are no updates repos for Leap 16 -->
+    <!-- <repository type="rpm-md">
+        <source path="https://download.opensuse.org/update/leap/16.0/oss/"/>
+    </repository>
+
+    <repository type="rpm-md">
+        <source path="https://download.opensuse.org/update/leap/16.0/non-oss/"/>
+    </repository> -->
+
+    <preferences profiles="Azure" arch="x86_64">
+        <type
+          vhdfixedtag="f3aed66d-57ef-4268-bce4-8ca20550f851"
+          bootpartition="false"
+          devicepersistency="by-uuid"
+          filesystem="btrfs"
+          firmware="uefi"
+          image="oem"
+          kernelcmdline="console=ttyS0 net.ifnames=0 iommu.passthrough=1 dis_ucode_ldr earlyprintk=ttyS0 multipath=off nvme_core.io_timeout=240 rootdelay=300 scsi_mod.use_blk_mq=1 USE_BY_UUID_DEVICE_NAMES=1 security=selinux selinux=1"
+          btrfs_quota_groups="true"
+          btrfs_root_is_snapshot="true"
+          efipartsize="512"
+          format="vhd-fixed"
+          formatoptions="force_size">
+
+            <bootloader name="grub2" timeout="1" console="serial" timeout_style="countdown"/>
+            <size unit="M">30720</size>
+            <systemdisk>
+                <volume name="home"/>
+                <volume name="root"/>
+                <volume name="opt"/>
+                <volume name="srv"/>
+                <volume name="boot/grub2/i386-pc"/>
+                <volume name="boot/writable"/>
+                <volume name="usr/local"/>
+                <volume name="var"/>
+                <volume name="boot/grub2/x86_64-efi" mountpoint="boot/grub2/x86_64-efi"/>
+            </systemdisk>
+        </type>
+    </preferences>
+    <preferences profiles="Azure" arch="aarch64">
+        <type
+          vhdfixedtag="f3aed66d-57ef-4268-bce4-8ca20550f851"
+          bootpartition="false"
+          devicepersistency="by-uuid"
+          filesystem="btrfs"
+          firmware="uefi"
+          image="oem"
+          kernelcmdline="console=tty1 console=ttyAMA0 net.ifnames=0 iommu.passthrough=1 multipath=off nvme_core.io_timeout=240 rootdelay=300 scsi_mod.use_blk_mq=1 USE_BY_UUID_DEVICE_NAMES=1 earlycon=pl011,0xeffec000 initcall_blacklist=arm_pmu_acpi_init security=selinux selinux=1"
+          btrfs_quota_groups="true"
+          btrfs_root_is_snapshot="true"
+          efipartsize="512"
+          format="vhd-fixed"
+          formatoptions="force_size">
+
+            <bootloader name="grub2" timeout="1" console="serial" timeout_style="countdown"/>
+            <size unit="M">30720</size>
+            <systemdisk>
+                <volume name="home"/>
+                <volume name="root"/>
+                <volume name="opt"/>
+                <volume name="srv"/>
+                <volume name="boot/grub2/i386-pc"/>
+                <volume name="boot/writable"/>
+                <volume name="usr/local"/>
+                <volume name="var"/>
+                <volume name="boot/grub2/arm64-efi" mountpoint="boot/grub2/arm64-efi"/>
+            </systemdisk>
+        </type>
+    </preferences>
+
+    <preferences profiles="KVM" arch="x86_64">
+        <type
+          image="oem"
+          format="qcow2"
+          filesystem="btrfs"
+          firmware="uefi"
+          efipartsize="512"
+          kernelcmdline="console=ttyS0 console=tty0 security=selinux selinux=1 net.ifnames=0"
+          bootpartition="false"
+          bootkernel="default"
+          devicepersistency="by-uuid">
+
+            <bootloader name="grub2" timeout="1" console="serial" timeout_style="countdown"/>
+            <size unit="G">10</size>
+            <oemconfig>
+                <oem-resize>true</oem-resize>
+            </oemconfig>
+
+            <systemdisk>
+                <volume name="home"/>
+                <volume name="root"/>
+                <volume name="opt"/>
+                <volume name="srv"/>
+                <volume name="boot/grub2/i386-pc"/>
+                <volume name="boot/writable"/>
+                <volume name="usr/local"/>
+                <volume name="var"/>
+                <volume name="boot/grub2/x86_64-efi" mountpoint="boot/grub2/x86_64-efi"/>
+            </systemdisk>
+        </type>
+    </preferences>
+    <preferences profiles="KVM" arch="aarch64">
+        <type
+          image="oem"
+          format="qcow2"
+          filesystem="btrfs"
+          firmware="uefi"
+          efipartsize="512"
+          kernelcmdline="console=tty1 console=ttyAMA0 security=selinux selinux=1 net.ifnames=0"
+          bootpartition="false"
+          bootkernel="default"
+          devicepersistency="by-uuid">
+
+            <bootloader name="grub2" timeout="1" console="serial" timeout_style="countdown"/>
+            <size unit="G">10</size>
+            <oemconfig>
+                <oem-resize>true</oem-resize>
+            </oemconfig>
+
+            <systemdisk>
+                <volume name="home"/>
+                <volume name="root"/>
+                <volume name="opt"/>
+                <volume name="srv"/>
+                <volume name="boot/grub2/i386-pc"/>
+                <volume name="boot/writable"/>
+                <volume name="usr/local"/>
+                <volume name="var"/>
+                <volume name="boot/grub2/arm64-efi" mountpoint="boot/grub2/arm64-efi"/>
+            </systemdisk>
+        </type>
+    </preferences>
+
+
+    <packages type="image">
+        <package name="aaa_base"/>
+        <package name="bash"/>
+        <package name="btrfsprogs"/>
+        <package name="btrfsmaintenance"/>
+        <package name="build-key"/>
+        <package name="ca-certificates-mozilla"/>
+        <package name="coreutils"/>
+        <package name="coreutils-systemd"/>
+        <package name="dracut"/>
+        <package name="glibc"/>
+        <package name="glibc-locale-base"/>
+        <package name="Leap-release"/>
+        <package name="libnss_usrfiles2"/>
+        <package name="ntp-daemon"/>
+        <package name="openSUSE-repos-Leap"/>
+        <package name="pam"/>
+        <package name="pam-config"/>
+        <package name="patterns-base-selinux"/>
+        <package name="procps"/>
+        <package name="rpm"/>
+        <package name="selinux-policy"/>
+        <package name="selinux-policy-targeted"/>
+        <package name="shadow"/>
+        <package name="systemd"/>
+        <package name="terminfo-base"/>
+        <package name="timezone"/>
+        <package name="user(nobody)"/>
+        <package name="util-linux"/>
+        <package name="wtmpdb"/>
+        <package name="xfsprogs"/>
+        <package name="grub2"/>
+        <package name="grub2-arm64-efi" arch="aarch64"/>
+        <package name="grub2-x86_64-efi" arch="x86_64"/>
+        <package name="mokutil"/>
+        <package name="release-notes-openSUSE"/>
+        <package name="shim"/>
+        <package name="sudo"/>
+        <package name="systemd-default-settings-branding-openSUSE"/>
+        <package name="NetworkManager"/>
+        <package name="NetworkManager-branding-openSUSE"/>
+        <package name="vim"/>
+
+        <!-- openSCAP -->
+        <package name="openscap-utils"/>
+        <package name="openscap-content"/>
+        <package name="openscap"/>
+        <package name="libopenscap33"/>
+        <package name="scap-security-guide"/>
+    </packages>
+
+    <packages type="image" profiles="azure-base,kvm-base">
+        <archive name="pubcloud.tar.gz"/>
+        <package name="aaa_base-extras"/>
+        <package name="at-spi2-core"/>
+        <package name="attr"/>
+        <package name="bc"/>
+        <package name="binutils"/>
+        <!-- <package name="cifs-utils"/> -->
+        <package name="crash"/>
+        <package name="curl"/>
+        <package name="cyrus-sasl"/>
+        <package name="cyrus-sasl-digestmd5"/>
+        <package name="cyrus-sasl-gssapi"/>
+        <package name="cyrus-sasl-plain"/>
+        <package name="cyrus-sasl-saslauthd"/>
+        <package name="dos2unix"/>
+        <package name="ethtool"/>
+        <package name="expect"/>
+        <!-- <package name="fping"/> -->
+        <package name="glibc-i18ndata"/>
+        <package name="glibc-locale"/>
+        <package name="iproute2"/>
+        <package name="irqbalance"/>
+        <package name="kernel-default"/>
+        <package name="krb5-client"/>
+        <package name="libyui-ncurses-pkg16"/>
+        <package name="lvm2"/>
+        <package name="man"/>
+        <package name="man-pages"/>
+        <package name="mozilla-nss-certs"/>
+        <package name="netcat-openbsd"/>
+        <!-- <package name="nfs-client"/> -->
+        <!-- <package name="nfs-kernel-server"/> -->
+        <package name="openldap2-client"/>
+        <package name="polkit-default-privs"/>
+        <package name="psmisc"/>
+        <!-- <package name="quota"/> -->
+        <package name="rsync"/>
+        <!-- <package name="screen"/> -->
+        <package name="strace"/>
+        <package name="system-user-mail"/>
+        <package name="tcsh"/>
+        <package name="wget"/>
+        <package name="yast2"/>
+        <package name="yast2-add-on"/>
+        <package name="yast2-audit-laf"/>
+        <package name="yast2-bootloader"/>
+        <package name="yast2-core"/>
+        <package name="yast2-country"/>
+        <package name="yast2-country-data"/>
+        <package name="yast2-firewall"/>
+        <package name="yast2-hardware-detection"/>
+        <package name="yast2-iscsi-client"/>
+        <package name="yast2-kdump"/>
+        <package name="yast2-ldap"/>
+        <package name="yast2-network"/>
+        <package name="yast2-ntp-client"/>
+        <package name="yast2-packager"/>
+        <package name="yast2-pam"/>
+        <package name="yast2-registration"/>
+        <package name="yast2-security"/>
+        <package name="yast2-transfer"/>
+        <package name="yast2-trans-stats"/>
+        <package name="yast2-update"/>
+        <package name="yast2-users"/>
+        <package name="yast2-xml"/>
+        <package name="yast2-ycp-ui-bindings"/>
+        <!-- <package name="zip"/> -->
+        <package name="zsh"/>
+        <package name="dhcpcd"/>
+        <package name="tpm2.0-tools"/>
+        <!-- <package name="podman"/> -->
+        <package name="rsyslog"/>
+        <!-- <package name="tcpdump"/> -->
+    </packages>
+
+    <packages type="image" profiles="azure-base">
+        <archive name="azure.tar.gz"/>
+        <package name="dracut-kiwi-oem-repart"/>
+        <package name="cloud-netconfig-azure"/>
+        <package name="hyper-v"/>
+        <package name="microsoft-dracut-config"/>
+        <package name="python-azure-agent"/>
+        <package name="python-azure-agent-config-server"/>
+        <package name="cloud-init"/>
+        <package name="cloud-init-config-suse"/>
+        <package name="cryptsetup"/>
+        <package name="python-azuremetadata"/>
+        <package name="azure-vm-utils"/>
+        <package name="himmelblau"/>
+
+        <!-- SSSD -->
+        <package name="sssd"/>
+        <package name="sssd-ad"/>
+        <package name="sssd-ldap"/>
+        <package name="sssd-tools"/>
+        <package name="sssd-krb5"/>
+        <package name="sssd-cifs-idmap-plugin"/>
+        <package name="krb5-client"/>
+        <package name="samba-client"/>
+        <package name="adcli"/>
+        <package name="sudo-plugin-python"/>
+        <package name="oddjob"/>
+        <package name="oddjob-mkhomedir"/>
+        <package name="realmd"/>
+    </packages>
+
+    <packages type="image" profiles="kvm-base">
+        <package name="dracut-kiwi-oem-repart"/>
+        <package name="qemu-guest-agent"/>
+    </packages>
+
+    <packages type="bootstrap">
+        <package name="filesystem"/>
+        <package name="ca-certificates"/>
+        <package name="ca-certificates-mozilla"/>
+    </packages>
+</image>
